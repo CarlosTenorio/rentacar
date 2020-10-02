@@ -7,5 +7,5 @@ car_detail = views.CarViewSet.as_view({'get': 'retrieve', 'put': 'update'})
 
 urlpatterns = [
     path('cars/', car_list, name='card-list'),
-    path('cars/<int:id>/', car_detail, name='card-detail'),
+    path('cars/<int:car_id>/', car_detail, name='card-detail'),
 ]
