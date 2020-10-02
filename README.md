@@ -1,6 +1,6 @@
 # API Sample
 
-API of a Rent a Car to explain backend concepts on the Topic 8 of the course.
+API of a Rent a Car to explain backend concepts.
 
 Based on Django & Django REST Framework
 
@@ -28,3 +28,8 @@ DB: PostgreSQL
 > .\scripts\migrate.bat
 ```
 
+## Create a superuser for the admin tool
+
+```console
+> .\scripts\createsuperuser.bat
+```
