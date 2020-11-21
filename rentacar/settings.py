@@ -41,6 +41,8 @@ BASE_APPS = [
 
 VENDOR_APPS = [
     'rest_framework',
+    'drf_yasg',
+    'corsheaders',
 ]
 
 MY_APPS = [
@@ -50,10 +52,12 @@ MY_APPS = [
 INSTALLED_APPS = BASE_APPS + VENDOR_APPS + MY_APPS
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -133,3 +137,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# CORS (django-cors-headers)
+CORS_ALLOWED_ORIGINS = [
+    "https://qubeteam.postman.co",
+    "http://localhost:4200",
+]

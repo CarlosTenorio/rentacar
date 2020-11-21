@@ -1,11 +1,30 @@
+from django.db.models import fields
 from rest_framework import serializers
-from api.models import Car
+from api.models import Car, Country, City, Model, Brand
+
+
+class BrandSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Brand
+        fields = ['name']
+
+
+class ModelSerializer(serializers.ModelSerializer):
+    brand = BrandSerializer(many=False, read_only=True)
+
+    class Meta:
+        model = Model
+        fields = ['name', 'brand']
 
 
 class CarSerializer(serializers.ModelSerializer):
+
+    model = ModelSerializer(many=False, read_only=True)
+
     class Meta:
         model = Car
-        fields = '__all__'
+        fields = ['color_type', 'doors', 'passengers',
+                  'fuel_type', 'category', 'model']
 
 
 class CarCreateSerializer(serializers.ModelSerializer):
@@ -14,7 +33,19 @@ class CarCreateSerializer(serializers.ModelSerializer):
         exclude = ['id']
 
 
-class CarUpdateSerializer(serializers.ModelSerializer):
+class CountrySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Car
-        exclude = ['id']
+        model = Country
+        fields = ['id', 'name']
+
+
+class CitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+        fields = ['id', 'name']
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+        fields = '__all__'
