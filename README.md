@@ -1,6 +1,6 @@
 # API Sample
 
-API of a Rent a Car to explain backend concepts.
+API of a Rent a Car to explain backend concepts on my classes.
 
 Based on Django & Django REST Framework
 

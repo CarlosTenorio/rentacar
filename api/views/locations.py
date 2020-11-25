@@ -15,11 +15,12 @@ class LocationViewSet(viewsets.ViewSet):
 
     def list(self, request):
         cities_db = City.objects.all()
-        countries_db = Country.objects.all()
+        # countries_db = Country.objects.all()
 
         cities_serializer = CitySerializer(cities_db, many=True)
-        countries_serializer = CountrySerializer(countries_db, many=True)
+        # countries_serializer = CountrySerializer(countries_db, many=True)
 
-        locations = cities_serializer.data + countries_serializer.data
+        # locations = cities_serializer.data + countries_serializer.data
+        locations = cities_serializer.data
 
         return Response(locations)

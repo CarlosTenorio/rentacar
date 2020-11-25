@@ -1,0 +1,22 @@
+[
+  {
+    "pk": 0,
+    "name": "small",
+    "price": 20
+  },
+  {
+    "pk": 1,
+    "name": "medium",
+    "price": 25
+  },
+  {
+    "pk": 2,
+    "name": "big",
+    "price": 30
+  },
+  {
+    "pk": 3,
+    "name": "luxury",
+    "price": 50
+  }
+]

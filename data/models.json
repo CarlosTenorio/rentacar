@@ -1,0 +1,26 @@
+[
+  {
+    "pk": 0,
+    "name": "C1",
+    "year": "2019",
+    "brand": 0
+  },
+  {
+    "pk": 1,
+    "name": "Corsa",
+    "year": "2016",
+    "brand": 1
+  },
+  {
+    "pk": 2,
+    "name": "T-Cross",
+    "year": "2020",
+    "brand": 2
+  },
+  {
+    "pk": 3,
+    "name": "Polo",
+    "year": "2020",
+    "brand": 2
+  }
+]

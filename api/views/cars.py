@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 import json
 from django.db.models import Q
 from drf_yasg.utils import swagger_auto_schema
-from drf_yasg.openapi import Parameter, TYPE_STRING, IN_QUERY
+from drf_yasg.openapi import Parameter, TYPE_STRING, TYPE_INTEGER, IN_QUERY
 
 ######################
 # FIRST VERSION VIEWS
@@ -143,9 +143,11 @@ class CarViewSet(viewsets.ViewSet):
     """
 
     @swagger_auto_schema(manual_parameters=[
+        Parameter('city', IN_QUERY, type=TYPE_INTEGER, required=False),
         Parameter('date_start', IN_QUERY, type=TYPE_STRING, required=False),
         Parameter('date_end', IN_QUERY, type=TYPE_STRING, required=False)])
     def list(self, request):
+        city = self.request.query_params.get('city', None)
         date_start = self.request.query_params.get('date_start', None)
         date_end = self.request.query_params.get('date_end', None)
 
@@ -156,6 +158,9 @@ class CarViewSet(viewsets.ViewSet):
         else:
             cars_db = Car.objects.filter(
                 car_order__in=oders_db) | Car.objects.filter(car_order=None)
+
+        if(city):
+            cars_db = cars_db.filter(city=city)
 
         serializer = CarSerializer(cars_db, many=True)
 

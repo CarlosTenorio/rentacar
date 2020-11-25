@@ -1,0 +1,32 @@
+[
+  {
+    "color_type": "0",
+    "doors": 5,
+    "passengers": 5,
+    "registration": "8756HJY",
+    "fuel_type": 0,
+    "category": 0,
+    "model": 0,
+    "city": 0
+  },
+  {
+    "color_type": "3",
+    "doors": 5,
+    "passengers": 5,
+    "registration": "4567JHI",
+    "fuel_type": 1,
+    "category": 0,
+    "model": 1,
+    "city": 0
+  },
+  {
+    "color_type": "5",
+    "doors": 5,
+    "passengers": 5,
+    "registration": "9875HYY",
+    "fuel_type": 0,
+    "category": 1,
+    "model": 2,
+    "city": 0
+  }
+]
