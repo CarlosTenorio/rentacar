@@ -1,4 +1,3 @@
-from django.db.models import fields
 from rest_framework import serializers
 from api.models import Car, Country, City, Model, Brand
 
@@ -14,7 +13,7 @@ class ModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Model
-        fields = ['name', 'brand']
+        fields = ['name', 'brand', 'photo']
 
 
 class CarSerializer(serializers.ModelSerializer):

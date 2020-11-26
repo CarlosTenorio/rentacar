@@ -138,15 +138,14 @@ from drf_yasg.openapi import Parameter, TYPE_STRING, TYPE_INTEGER, IN_QUERY
 
 class CarViewSet(viewsets.ViewSet):
 
-    """
-    GET (ALL)
-    """
-
     @swagger_auto_schema(manual_parameters=[
         Parameter('city', IN_QUERY, type=TYPE_INTEGER, required=False),
         Parameter('date_start', IN_QUERY, type=TYPE_STRING, required=False),
         Parameter('date_end', IN_QUERY, type=TYPE_STRING, required=False)])
     def list(self, request):
+        """
+        GET (ALL)
+        """
         city = self.request.query_params.get('city', None)
         date_start = self.request.query_params.get('date_start', None)
         date_end = self.request.query_params.get('date_end', None)
@@ -162,37 +161,36 @@ class CarViewSet(viewsets.ViewSet):
         if(city):
             cars_db = cars_db.filter(city=city)
 
-        serializer = CarSerializer(cars_db, many=True)
+        cars_serializer = CarSerializer(cars_db, many=True)
 
-        return Response(serializer.data)
-
-    """
-    GET (ONE)
-    """
+        return Response(cars_serializer.data)
 
     def retrieve(self, request, car_id=None):
+        """
+        GET (ONE)
+        """
         queryset = Car.objects.all()
         car = get_object_or_404(queryset, pk=car_id)
 
         serializer = CarSerializer(car)
 
         return Response(serializer.data)
-    """
-    POST
-    """
 
     def create(self, request):
+        """
+        POST
+        """
         car_serializer = CarCreateSerializer(
             data=request.data, context={'request': request})
         if car_serializer.is_valid():
             car_serializer.save()
             return Response(car_serializer.data, status=status.HTTP_201_CREATED)
         return Response(car_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    """
-    PUT
-    """
 
     def update(self, request, car_id=None):
+        """
+        PUT
+        """
         queryset = Car.objects.all()
         car = get_object_or_404(queryset, pk=car_id)
 

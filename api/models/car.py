@@ -31,7 +31,6 @@ class Car(models.Model):
     booking = models.BooleanField(verbose_name='Is already booking')
     fuel_type = models.IntegerField(null=False, blank=False,
                                     verbose_name='Fuel type', default=0, choices=FUEL_TYPE)
-    photo = models.ImageField(upload_to='cars')
 
     category = models.ForeignKey(Category, on_delete=models.PROTECT,
                                  related_name="category_car", verbose_name='Category',

@@ -1,1 +1,1 @@
-.\myvenv\Scripts\activate & python manage.py makemigrations %1
+.\myvenv\Scripts\activate & python manage.py makemigrations
