@@ -3,24 +3,28 @@
     "pk": 0,
     "name": "C1",
     "year": "2019",
-    "brand": 0
+    "brand": 0,
+    "photo": "https://www.sixt.es/fileadmin/files/global/user_upload/fleet/png/350x200/citroen-c1-3d-grau-2020.png"
   },
   {
     "pk": 1,
     "name": "Corsa",
     "year": "2016",
-    "brand": 1
+    "brand": 1,
+    "photo": "https://www.sixt.es/fileadmin/files/global/user_upload/fleet/png/350x200/opel-corsa-5d-silber-2020.png"
   },
   {
     "pk": 2,
     "name": "T-Cross",
     "year": "2020",
-    "brand": 2
+    "brand": 2,
+    "photo": "https://www.sixt.es/fileadmin/files/global/user_upload/fleet/png/350x200/vw-t-cross-5d-grau-2019.png"
   },
   {
     "pk": 3,
     "name": "Polo",
     "year": "2020",
-    "brand": 2
+    "brand": 2,
+    "photo": "https://www.sixt.es/fileadmin/files/global/user_upload/fleet/png/350x200/vw-polo-5d-weiss-2020.png"
   }
 ]

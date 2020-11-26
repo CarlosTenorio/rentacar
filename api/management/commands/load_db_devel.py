@@ -1,15 +1,12 @@
+import os
+from api.models import Country, City, Model, Brand, Order, Car, Category
 from django.core.management import BaseCommand
 import json
-import random
-import string
-
-from string import ascii_uppercase
-from datetime import datetime
-from datetime import date
+import requests
 
 from django.contrib.auth.models import User
-
-from api.models import Country, City, Model, Brand, Order, Car, Category
+from django.core.files import File
+from django.core.files.temp import NamedTemporaryFile
 
 
 class Command(BaseCommand):
@@ -99,7 +96,17 @@ class Command(BaseCommand):
                 model.pk = model_json.get('pk')
                 model.name = model_json.get('name')
                 model.year = model_json.get('year')
+
                 model.brand = Brand.objects.get(pk=model_json.get('brand'))
+
+                req = requests.get(model_json.get('photo'))
+                if req.status_code == 200:
+                    img_temp = NamedTemporaryFile()
+                    img_temp.write(req.content)
+                    img_temp.flush()
+                    model.photo.save(os.path.basename(
+                        model_json.get('photo')), File(img_temp), save=True)
+
                 model.save()
 
         def insert_categories():
@@ -158,4 +165,4 @@ class Command(BaseCommand):
         insert_categories()
         print()
         insert_cars()
-        print("Insert data successful")
+        print("Insert data successful 👌👌👌")
