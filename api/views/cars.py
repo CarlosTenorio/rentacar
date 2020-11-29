@@ -213,11 +213,10 @@ class CarViewSet(viewsets.ViewSet):
 
         return Response(car_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    """
-    DELETE
-    """
-
     def destroy(self, request, car_id=None):
+        """
+        DELETE
+        """
         # Dirty version
         # cars_db = Car.objects.all()
         # car = get_object_or_404(cars_db, pk=car_id)
