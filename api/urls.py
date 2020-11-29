@@ -13,5 +13,4 @@ urlpatterns = [
     path('cars/<int:car_id>/', car_detail, name='card-detail'),
     path('locations/', locations_list, name='locations-list'),
     path('orders/', locations_list, name='orders-list'),
-
 ]

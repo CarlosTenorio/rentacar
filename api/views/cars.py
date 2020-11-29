@@ -169,13 +169,18 @@ class CarViewSet(viewsets.ViewSet):
         """
         GET (ONE)
         """
-        queryset = Car.objects.all()
-        car = get_object_or_404(queryset, pk=car_id)
+        # Dirty version
+        # cars_db = Car.objects.all()
+        # car = get_object_or_404(cars_db, pk=car_id)
 
-        serializer = CarSerializer(car)
+        # Clean Version
+        car = get_object_or_404(Car, pk=car_id)
 
-        return Response(serializer.data)
+        car_serializer = CarSerializer(car)
 
+        return Response(car_serializer.data)
+
+    @swagger_auto_schema(request_body=CarCreateSerializer)
     def create(self, request):
         """
         POST
@@ -187,12 +192,17 @@ class CarViewSet(viewsets.ViewSet):
             return Response(car_serializer.data, status=status.HTTP_201_CREATED)
         return Response(car_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @swagger_auto_schema(request_body=CarCreateSerializer)
     def update(self, request, car_id=None):
         """
         PUT
         """
-        queryset = Car.objects.all()
-        car = get_object_or_404(queryset, pk=car_id)
+        # Dirty version
+        # cars_db = Car.objects.all()
+        # car = get_object_or_404(cars_db, pk=car_id)
+
+        # Clean Version
+        car = get_object_or_404(Car, pk=car_id)
 
         car_serializer = CarCreateSerializer(
             car, data=request.data, partial=True)
@@ -208,7 +218,14 @@ class CarViewSet(viewsets.ViewSet):
     """
 
     def destroy(self, request, car_id=None):
-        queryset = Car.objects.all()
-        car = get_object_or_404(queryset, pk=car_id)
+        # Dirty version
+        # cars_db = Car.objects.all()
+        # car = get_object_or_404(cars_db, pk=car_id)
+
+        # Clean Version
+        car = get_object_or_404(Car, pk=car_id)
         car.delete()
-        return Response(status=status.HTTP_200_OK)
+
+        car_serializer = CarSerializer(car)
+
+        return Response(car_serializer.data, status=status.HTTP_200_OK)
