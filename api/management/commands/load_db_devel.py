@@ -25,9 +25,6 @@ class Command(BaseCommand):
             User.objects.all().delete()
 
         def insert_countries():
-            print("Deleting countries...")
-            Country.objects.all().delete()
-
             print("Inserting countries...")
             with open('data/countries.json', 'r') as f:
                 countries_str = f.read()
@@ -40,9 +37,6 @@ class Command(BaseCommand):
                 country.save()
 
         def insert_cities():
-            print("Deleting cities...")
-            City.objects.all().delete()
-
             print("Inserting cities...")
             with open('data/cities.json', 'r') as f:
                 cities_str = f.read()
@@ -56,9 +50,6 @@ class Command(BaseCommand):
                 city.save()
 
         def insert_users():
-            print("Deleting my users...")
-            User.objects.all().delete()
-
             print("Inserting super user...")
             username = "root"
             email = "superuser@email.com"
@@ -68,9 +59,6 @@ class Command(BaseCommand):
             user_django.save()
 
         def insert_brands():
-            print("Deleting brands...")
-            Brand.objects.all().delete()
-
             print("Inserting brands...")
             with open('data/brands.json', 'r') as f:
                 brands_str = f.read()
@@ -83,9 +71,6 @@ class Command(BaseCommand):
                 brand.save()
 
         def insert_models():
-            print("Deleting models...")
-            Model.objects.all().delete()
-
             print("Inserting models...")
             with open('data/models.json', 'r') as f:
                 models_str = f.read()
@@ -110,9 +95,6 @@ class Command(BaseCommand):
                 model.save()
 
         def insert_categories():
-            print("Deleting categories...")
-            Category.objects.all().delete()
-
             print("Inserting categories...")
             with open('data/categories.json', 'r') as f:
                 categories_str = f.read()
@@ -126,9 +108,6 @@ class Command(BaseCommand):
                 category.save()
 
         def insert_cars():
-            print("Deleting cars...")
-            Car.objects.all().delete()
-
             print("Inserting cars...")
             with open('data/cars.json', 'r') as f:
                 cars_str = f.read()
