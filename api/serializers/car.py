@@ -11,5 +11,5 @@ class CarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Car
-        fields = ['color_type', 'doors', 'passengers',
+        fields = ['id', 'color_type', 'doors', 'passengers',
                   'fuel_type', 'category', 'model']

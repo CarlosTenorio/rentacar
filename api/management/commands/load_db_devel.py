@@ -26,8 +26,8 @@ class Command(BaseCommand):
 
         def insert_countries():
             print("Inserting countries...")
-            with open('data/countries.json', 'r') as f:
-                countries_str = f.read()
+            with open('data/countries.json', 'r') as file:
+                countries_str = file.read()
                 countries_json = json.loads(countries_str)
 
             for country_json in countries_json:
@@ -38,8 +38,8 @@ class Command(BaseCommand):
 
         def insert_cities():
             print("Inserting cities...")
-            with open('data/cities.json', 'r') as f:
-                cities_str = f.read()
+            with open('data/cities.json', 'r') as file:
+                cities_str = file.read()
                 cities_json = json.loads(cities_str)
 
             for city_json in cities_json:
@@ -60,8 +60,8 @@ class Command(BaseCommand):
 
         def insert_brands():
             print("Inserting brands...")
-            with open('data/brands.json', 'r') as f:
-                brands_str = f.read()
+            with open('data/brands.json', 'r') as file:
+                brands_str = file.read()
                 brands_json = json.loads(brands_str)
 
             for brand_json in brands_json:
@@ -72,8 +72,8 @@ class Command(BaseCommand):
 
         def insert_models():
             print("Inserting models...")
-            with open('data/models.json', 'r') as f:
-                models_str = f.read()
+            with open('data/models.json', 'r') as file:
+                models_str = file.read()
                 models_json = json.loads(models_str)
 
             for model_json in models_json:
@@ -96,8 +96,8 @@ class Command(BaseCommand):
 
         def insert_categories():
             print("Inserting categories...")
-            with open('data/categories.json', 'r') as f:
-                categories_str = f.read()
+            with open('data/categories.json', 'r') as file:
+                categories_str = file.read()
                 categories_json = json.loads(categories_str)
 
             for category_json in categories_json:
@@ -109,8 +109,8 @@ class Command(BaseCommand):
 
         def insert_cars():
             print("Inserting cars...")
-            with open('data/cars.json', 'r') as f:
-                cars_str = f.read()
+            with open('data/cars.json', 'r') as file:
+                cars_str = file.read()
                 cars_json = json.loads(cars_str)
 
             for car_json in cars_json:
