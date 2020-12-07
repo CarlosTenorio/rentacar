@@ -150,13 +150,13 @@ class CarViewSet(viewsets.ViewSet):
         date_start = self.request.query_params.get('date_start', None)
         date_end = self.request.query_params.get('date_end', None)
 
-        oders_db = Order.objects.exclude(
+        orders_db = Order.objects.exclude(
             Q(date_start__range=(date_start, date_end)) | Q(date_end__range=(date_start, date_end)))
         if(date_start == None or date_end == None):
             cars_db = Car.objects.all()
         else:
             cars_db = Car.objects.filter(
-                car_order__in=oders_db) | Car.objects.filter(car_order=None)
+                car_order__in=orders_db) | Car.objects.filter(car_order=None)
 
         if(city):
             cars_db = cars_db.filter(city=city)
