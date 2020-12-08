@@ -29,4 +29,4 @@ class Order(models.Model):
         verbose_name_plural = 'Orders'
 
     def __str__(self):
-        return f'{self.date_start}-{self.date_end}'
+        return f'{self.date_start}  -  {self.date_end}'

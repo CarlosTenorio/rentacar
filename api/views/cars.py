@@ -152,6 +152,7 @@ class CarViewSet(viewsets.ViewSet):
 
         orders_db = Order.objects.exclude(
             Q(date_start__range=(date_start, date_end)) | Q(date_end__range=(date_start, date_end)))
+
         if(date_start == None or date_end == None):
             cars_db = Car.objects.all()
         else:
