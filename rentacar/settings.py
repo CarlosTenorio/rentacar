@@ -42,6 +42,7 @@ BASE_APPS = [
 
 VENDOR_APPS = [
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_yasg',
     'corsheaders',
 ]
@@ -149,3 +150,10 @@ CORS_ALLOWED_ORIGINS = [
     "https://qubeteam.postman.co",
     "http://localhost:4200",
 ]
+
+# REST FRAMEWORK
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
