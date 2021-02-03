@@ -9,11 +9,11 @@ from api.serializers import CitySerializer, CountrySerializer
 
 
 class LocationViewSet(viewsets.ViewSet):
-    """
-    GET (ALL)
-    """
 
     def list(self, request):
+        """
+        GET (ALL)
+        """
         cities_db = City.objects.all()
         # countries_db = Country.objects.all()
 
