@@ -42,7 +42,7 @@ class Car(models.Model):
 
     city = models.ForeignKey(City, on_delete=models.PROTECT,
                              related_name="city_car", verbose_name='City',
-                             null=True, blank=False)
+                             null=True, blank=False, default=None)
 
     created_at = models.DateTimeField(
         auto_now_add=True, null=False, blank=False, verbose_name='Creation date')
