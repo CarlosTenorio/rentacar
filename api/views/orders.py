@@ -3,13 +3,17 @@ from rest_framework.response import Response
 from api.models import Order
 from api.serializers import OrderSerializer, OrderCreateSerializer
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 #########################################
-# LOCATIONS VIEW (Countries & Cities)
+# ORDERS VIEW
 ########################################
 
 
 class OrderViewSet(viewsets.ViewSet):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def list(self, request):
         """
@@ -25,6 +29,7 @@ class OrderViewSet(viewsets.ViewSet):
         """
         POST
         """
+
         order_serializer = OrderCreateSerializer(
             data=request.data, context={'request': request})
         if order_serializer.is_valid():

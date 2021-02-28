@@ -5,4 +5,4 @@ from api.models import Order
 class OrderCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        exclude = ['id', 'user']
+        exclude = ['id', 'user', 'created_at', 'updated_at']
